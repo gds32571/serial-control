@@ -1,0 +1,23 @@
+On System#Boot do
+  serialsend,.
+  pulse,15,1, 500
+
+  serialsend,51
+  pulse,15,1, 500
+ 
+  serialsend,41
+  pulse,15,1, 500
+
+  serialsend,31
+  pulse,15,1, 500
+
+  serialsend,21
+  pulse,15,1, 500
+
+  serialsend,11
+  pulse,15,1, 500
+
+  serialsend,01
+  pulse,15,1, 500
+
+end on
