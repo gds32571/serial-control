@@ -5,6 +5,12 @@
   Must delay 1/2 second after sending string before sending another.
   16 Sept 2018 - gswann
 
+   Clk - internal 8 MHz
+
+   23 April 2019 - gswann v2
+   Updated to respond to software reset
+   Three 'r' characters sent in sequence
+
 */
 
 // Runs on Attiny44, also ATTiny 85 if you change the pins
@@ -19,6 +25,17 @@ char c ;
 SoftwareSerial mySerial(10, 9); // RX, TX  package pins 2 and 3  -  ATTiny44
 
 void setup() {
+
+/* for testing pins
+  pinMode(0, OUTPUT);
+  for (int ii=0;ii<300;ii++){
+     digitalWrite(0,HIGH);
+     delay(1000);
+     digitalWrite(0,LOW);
+     delay(1000);
+  }
+*/
+    
   // initialize the digital pin as an output.
   pinMode(led, OUTPUT);
   mySerial.begin(300);
@@ -43,6 +60,12 @@ char getChar() {
 void loop() {
 
   char pin = getChar();
+
+// software reset 
+  if (pin == 'r'){
+    return;
+  }
+  
   char state = getChar();
   char newline = getChar();
 
@@ -58,4 +81,3 @@ void loop() {
   }
   delay(10);
 }
-
