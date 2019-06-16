@@ -9,5 +9,8 @@ Second character is the desired pin state, either 0 or 1.
 Connect serial from ESPEasy TX to ATTiny pin 10 (package pin 2). You can/should use a 1K resistor between the two.
 Create a "Serial Server" device in ESPEasy. Set a TCP port which isn't used (but could be), 300 baud. 
 
+You don't need the ESPEasy part of this, that is only for testing.  This code on an ATTiny44 is used in my 
+UPS board to control some outputs.
+
 For example, in the rules, a "serialsend,51" will send data characters "51" to the ATTiny. This will set pin 5 to HIGH.
 See also: https://www.letscontrolit.com/wiki/index.php/Ser2Net for more information.
